@@ -11,7 +11,7 @@ datasource db {
 
 
 model User{
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   name String?
   username String @unique
   email String @unique 
@@ -20,8 +20,8 @@ model User{
 }
 
 model Blog{
-    id Int @id @default(autoincrement())
-    authorId Int 
+   id String @id @default(uuid())
+    authorId String 
     content String
     thumbnail String
     title String

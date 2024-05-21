@@ -1,10 +1,12 @@
 import { Hono } from "hono";
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from "@prisma/extension-accelerate"
+import { decode, sign, verify} from "hono/jwt"
 
 const userRouter =new Hono<{
       Bindings:{
          DATABASE_URL:string
+         JWT_SECRET:string
       }
 }>();
 
@@ -31,7 +33,10 @@ userRouter.post('/signup',async(c)=>{
                     password:body.password
                  }
             })
-           return c.json({msg:"user signup sucessfully"}); 
+            const jwt = await sign({
+                 id:user.id
+            },c.env.JWT_SECRET)
+           return c.json({msg:"user signup sucessfully",token:jwt}); 
         } catch (error) {
              c.status(403)
              return c.json({msg:"Error While Signup"})
@@ -55,7 +60,10 @@ userRouter.post('/signin',async(c)=>{
             c.status(400)
             return c.json({msg:"User doesn't exist with this credentials,Please signup"}) 
         }
-        return c.json({msg:"User signin successfully"})
+         const jwt = await sign({
+              id:user.id
+         },c.env.JWT_SECRET)
+        return c.json({msg:"User signin successfully" , token:jwt})
        } catch (error) {
            console.error(error);
             return c.json({msg:"Signin failed,something went wrong"})
