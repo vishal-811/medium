@@ -24,7 +24,9 @@ blogRouter.use('*', async (c, next) => {
             return c.json({ error: "Token is required" });
         }
         const responsePayload = await verify(token, c.env.JWT_SECRET);
+          console.log("1");
           console.log(responsePayload);
+          console.log("2");
         if (responsePayload.id) {
             c.set("user_id", responsePayload.id);
           await next();
@@ -33,9 +35,10 @@ blogRouter.use('*', async (c, next) => {
             c.status(401);
             return c.json({ error: "unauthorized" });
         }
-    } catch (error: any) {
+    } catch (error) {
+        console.log(error);
         c.status(403)
-        return c.json({ error: error.message });
+        return c.json({ error:"something went up to middlewares" });
     }
 })
 
@@ -45,21 +48,19 @@ blogRouter.post('/post',async(c)=>{
       }).$extends(withAccelerate())
 
      try {
-          const id =c.get("user_id");
-
         const body = await c.req.json();
         await prisma.blog.create({
              data:{
                  title:body.title,
                  content:body.content,
-                 authorId:id,
+                 authorId:c.get("user_id"),
                  thumbnail:body.thumbnail,
-                 author:body.author,
                 //  published:body.published,
              }
         })
        return c.json({msg:"Blog Posted Successfully"});
      } catch (error) {
+          console.log(error);
          c.status(403)
          return c.json({error:"Something went wrong"});
      }
@@ -103,7 +104,7 @@ blogRouter.get('/:id',async(c)=>{
        }
        
        try {
-           const blog = await prisma.blog.findUnique({
+           const blog = await prisma.blog.findFirst({
                where: {
                    id: id,
                },
@@ -112,7 +113,11 @@ blogRouter.get('/:id',async(c)=>{
                    title: true,
                    content: true,
                    thumbnail: true,
-                   author: true,
+                   author:{
+                    select:{
+                        name:true,
+                    }
+                   },
                },
            });
        

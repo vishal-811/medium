@@ -20,11 +20,11 @@ model User{
 }
 
 model Blog{
-   id String @id @default(uuid())
-    authorId String 
+    id String @id @default(uuid())
     content String
     thumbnail String
     title String
     published Boolean @default(false)
     author User @relation(fields: [authorId],references: [id])
+    authorId String 
 }
