@@ -6,7 +6,7 @@ import { verify } from "hono/jwt";
 const blogRouter =new Hono<{
       Bindings:{
          DATABASE_URL:string,
-         JWT_SECRET:string
+         JWT_SECRET:string  
       },
       Variables: {
         user_id: string,
@@ -15,7 +15,7 @@ const blogRouter =new Hono<{
 }>();
 
 // Middleware 
-blogRouter.use('*', async (c, next) => {
+blogRouter.use('/*', async (c, next) => {
     try {
         const header = c.req.header("authorization") || "";
         const token = header.split(' ')[1];
@@ -24,9 +24,6 @@ blogRouter.use('*', async (c, next) => {
             return c.json({ error: "Token is required" });
         }
         const responsePayload = await verify(token, c.env.JWT_SECRET);
-          console.log("1");
-          console.log(responsePayload);
-          console.log("2");
         if (responsePayload.id) {
             c.set("user_id", responsePayload.id);
           await next();
