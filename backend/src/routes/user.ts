@@ -16,9 +16,12 @@ userRouter.post('/signup',async(c)=>{
        }).$extends(withAccelerate());
         try {
             const body =await c.req.json();
-              const alreadyexist = await prisma.user.findUnique({
+              const alreadyexist = await prisma.user.findFirst({
                    where:{
-                      email:body.email
+                      OR:[
+                         {username:body.username},
+                         {email:body.email}
+                      ]
                    }
               })
               if(alreadyexist){
@@ -39,6 +42,7 @@ userRouter.post('/signup',async(c)=>{
            return c.json({msg:"user signup sucessfully",token:jwt}); 
         } catch (error) {
              c.status(403)
+             console.error(error);
              return c.json({msg:"Error While Signup"})
         }
 })
