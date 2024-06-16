@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from "@prisma/extension-accelerate"
 import { decode, sign, verify} from "hono/jwt"
+import { SignupSchema } from '@vishal-811/common'
 
 const userRouter =new Hono<{
       Bindings:{
@@ -16,6 +17,11 @@ userRouter.post('/signup',async(c)=>{
        }).$extends(withAccelerate());
         try {
             const body =await c.req.json();
+            const { success, error } = SignupSchema.safeParse(body);
+
+            if (!success) {
+               return c.json({msg:"Validation Failed, plz provide  a valid inputs"})
+            }
               const alreadyexist = await prisma.user.findFirst({
                    where:{
                       OR:[

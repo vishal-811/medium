@@ -2,6 +2,7 @@ import { PrismaClient } from "@prisma/client/edge";
 import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
+import { postBlogSchema, updateBlogSchema} from "@vishal-811/common"
 
 const blogRouter =new Hono<{
       Bindings:{
@@ -25,6 +26,7 @@ blogRouter.use('/*', async (c, next) => {
         }
         const responsePayload = await verify(token, c.env.JWT_SECRET);
         if (responsePayload.id) {
+            //@ts-ignore
             c.set("user_id", responsePayload.id);
           await next();
         }
@@ -46,6 +48,11 @@ blogRouter.post('/post',async(c)=>{
 
      try {
         const body = await c.req.json();
+         
+        const {success} = postBlogSchema.safeParse(body);
+          if(!success){
+              return c.json({msg:"Please provide a valid inputs"});
+          }
         await prisma.blog.create({
              data:{
                  title:body.title,
@@ -69,6 +76,11 @@ blogRouter.put('/update' ,async(c)=>{
         }).$extends(withAccelerate())
         try {
             const body =await c.req.json();
+
+            const { success } =updateBlogSchema.safeParse(body);
+             if(!success){
+                return c.json({msg:"please Provide a valid inputs"});
+             }
             await prisma.blog.update({
                where:{
                   id:body.id
