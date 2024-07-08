@@ -77,7 +77,7 @@ export const Signin = () => {
                      navigate('/');
                   }
               } catch (error: any) {
-                setErrortxt("Couldn't find account");
+                setErrortxt(error.response.data.msg);
                 console.log(error.response.data.msg);
                 setLoading(false);
               }
@@ -89,7 +89,7 @@ export const Signin = () => {
             {/* Show if any error */}
             {errortxt && (
               errortxt === "User doesn't exist with this credentials,Please signup" ?
-                <small className="text-sm text-red-500">{errortxt}</small> : undefined
+                <small className="text-sm text-red-500">"Couldn't find account"</small> : undefined
             )}
             <div className="mt-3 flex items-center space-x-1 mb-8">
               <p className="text-sm text-black dark:text-white">No account?</p>
