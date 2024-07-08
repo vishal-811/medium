@@ -20,7 +20,7 @@ userRouter.post('/signup',async(c)=>{
             const { success, error } = SignupSchema.safeParse(body);
 
             if (!success) {
-               return c.json({msg:"Validation Failed, plz provide  a valid inputs"})
+               return c.json({msg:"plz provide  a valid inputs"})
             }
               const alreadyexist = await prisma.user.findFirst({
                    where:{
@@ -54,6 +54,7 @@ userRouter.post('/signup',async(c)=>{
 })
 
 userRouter.post('/signin',async(c)=>{
+           console.log('Route hitted')
        const prisma =new PrismaClient({
             datasourceUrl:c.env?.DATABASE_URL
        }).$extends(withAccelerate())
@@ -68,15 +69,16 @@ userRouter.post('/signin',async(c)=>{
         })
         if(!user){
             c.status(400)
-            return c.json({msg:"User doesn't exist with this credentials,Please signup"}) 
+            return c.json({msg:"Couldn't find your account"}) 
         }
          const jwt = await sign({
               id:user.id
          },c.env.JWT_SECRET)
+          c.status(200) 
         return c.json({msg:"User signin successfully" , token:jwt})
        } catch (error) {
            console.error(error);
-            return c.json({msg:"Signin failed,something went wrong"})
+             return c.json({msg:"Signin failed,something went wrong"})
        }
 })
 

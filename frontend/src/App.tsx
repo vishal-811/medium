@@ -12,7 +12,7 @@ import { HomePage } from "./pages/Homepage";
 
 const AppContent = () => {
   return (
-    <div className="bg-white dark:bg-zinc-900 h-screen">
+    <div className="bg-white dark:bg-zinc-900">
       <Navbar />
       <main className="z-5">
         <Routes>

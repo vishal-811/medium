@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect'
 
 export const HomePage=()=>{
     return(
-        <div className="select-none">
+        <div className="select-none h-screen">
               <div className="mt-5  ps-2 pe-2 md:ps-0 md:pe-0">
               <h1 className="text-4xl md:text-6xl font-bold mb-5 mt-20 relative text-center
                text-zinc-700 dark:text-zinc-300  md:mx-auto max-w-4xl md:max-w-6xl !leading-snug">Creating stunning, high-performance
@@ -24,7 +24,7 @@ export const HomePage=()=>{
               tracking-normal bg-gradient-to-b from-orange-600 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
                     <Typewriter
                     options={{
-                     strings: ["Discover the possibilities.", "Create something extraordinary.", "Connect with your audience."],
+                     strings: ["Discover the possibilities.", "Create something cool.", "Connect with your audience."],
                      autoStart: true,
                       loop: true,
                       }}
