@@ -77,7 +77,7 @@ export const Signin = () => {
                      navigate('/');
                   }
               } catch (error: any) {
-                setErrortxt(error.response.data.msg);
+                setErrortxt("Couldn't find account");
                 console.log(error.response.data.msg);
                 setLoading(false);
               }
