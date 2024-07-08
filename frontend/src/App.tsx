@@ -8,13 +8,15 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { AllBlog } from "./pages/AllBlog";
 import { Signin } from "./pages/Signin";
 import { Signup } from "./pages/Signup";
+import { HomePage } from "./pages/Homepage";
 
 const AppContent = () => {
   return (
-    <div className="bg-white dark:bg-zinc-900 h-[100%]">
+    <div className="bg-white dark:bg-zinc-900 h-screen">
       <Navbar />
       <main className="z-5">
         <Routes>
+           <Route path="/" element={<HomePage/>}/>
           <Route path="/all" element={<AllBlog />} />
           <Route path="/signin" element={<Signin/>}/>
           <Route path="/signup" element={<Signup/>}/>
