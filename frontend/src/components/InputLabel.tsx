@@ -11,11 +11,11 @@ interface inputlabelProps{
 
 
 export const InputLabel:React.FC<inputlabelProps>=({labeltext ,placeholdertext ,Errortext,inputtype ,onChange,errorColor})=>{
-      // console.log(onchange);
+
     return(
         <div className="flex flex-col mt-5">
         <label className="text-zinc-700 mb-1 dark:text-zinc-100">{labeltext}</label>
-        <input className={`${errorColor === true ?'border-red-600 dark:border-red-500':''} placeholder:italic placeholder:text-slate-400 block border
+        <input className={`${errorColor == true ?'border-red-600 dark:border-red-500':''} placeholder:italic placeholder:text-slate-400 block border
          border-zinc-300 dark:border-zinc-500 rounded-md p-2 focus:outline-none focus:border-green-500 
          shadow-sm dark:bg-zinc-900 dark:focus:border-green-300 dark:placeholder:text-zinc-400 dark:text-white`}
           placeholder={placeholdertext} type={inputtype} required  onChange={ onChange }
