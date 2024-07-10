@@ -24,7 +24,8 @@ export const Signup=()=>{
                     <h2 className="text-2xl font-medium text-zinc-900  dark:text-zinc-200 tracking-tight">Create your account</h2>
                     <p className="text-zinc-500 dark:text-zinc-400 tracking-wider">to continue to BlogBuddy</p>
                  </div>
-                <InputLabel labeltext={"Username"} placeholdertext={"Enter your username"} inputtype={"text"} Errortext={errortext==='Username'?"Username":undefined}
+                <InputLabel labeltext={"Username"} placeholdertext={"Enter your username"} inputtype={"text"} Errortext={errortext==='Username'?"Username":undefined} 
+                      errorColor={errortext ==='Username' ?true:false}
                     onChange={(e)=>{
                           setErrorText('');
                          setSignPostParams({
@@ -34,6 +35,7 @@ export const Signup=()=>{
                     }}
                 />
                 <InputLabel labeltext={"Email address"} placeholdertext={"Enter your email"} inputtype={"email"} Errortext={errortext==='email'?"Email":undefined}
+                       errorColor={errortext ==='email' ?true:false}
                        onChange={(e)=>{
                         setErrorText('');
                         setSignPostParams({
@@ -43,6 +45,7 @@ export const Signup=()=>{
                    }}
                 />
                 <InputLabel labeltext={"Password"} placeholdertext={"Enter your password"} inputtype={"password"} Errortext={errortext === 'password'?'Password':undefined}
+                 errorColor={errortext ==='password' ?true:false}
                       onChange={(e)=>{
                         setErrorText('');
                         setSignPostParams({
@@ -99,7 +102,7 @@ export const Signup=()=>{
                        <div className="mt-6 flex items-center space-x-1 mb-8">
                        <p className="text-sm text-black dark:text-white">Have an account?</p>
                         <Link to={'/signin'}>
-                        <p className="text-lg text-green-500 dark:text-green-300 tracking-tight"> Sign Up</p>
+                        <p className="text-lg text-green-500 dark:text-green-300 tracking-tight"> Sign in</p>
                        </Link>
                         </div>
             </div>

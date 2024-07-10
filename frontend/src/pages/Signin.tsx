@@ -28,6 +28,7 @@ export const Signin = () => {
             placeholdertext={"Enter your email"}
             inputtype={"email"}
             Errortext={errortxt === 'email' ? "Email" : undefined}
+            errorColor={errortxt ==='email'  ?true:false}
             onChange={(e) => {
               setErrortxt('');
               setPostInputs({
@@ -41,6 +42,7 @@ export const Signin = () => {
             placeholdertext={"Enter your password"}
             inputtype={"password"}
             Errortext={errortxt === 'password' ? "Password" : undefined}
+            errorColor={errortxt ==='password' ?true:false}
             onChange={(e) => {
               setErrortxt('');
               setPostInputs({
