@@ -25,7 +25,7 @@ export const Signup=()=>{
                     <p className="text-zinc-500 dark:text-zinc-400 tracking-wider">to continue to BlogBuddy</p>
                  </div>
                 <InputLabel labeltext={"Username"} placeholdertext={"Enter your username"} inputtype={"text"} Errortext={errortext==='Username'?"Username":undefined} 
-                      errorColor={errortext ==='Username' ?true:false}
+                      errorColor={errortext ==='Username' ? true : false}
                     onChange={(e)=>{
                           setErrorText('');
                          setSignPostParams({
@@ -35,7 +35,7 @@ export const Signup=()=>{
                     }}
                 />
                 <InputLabel labeltext={"Email address"} placeholdertext={"Enter your email"} inputtype={"email"} Errortext={errortext==='email'?"Email":undefined}
-                       errorColor={errortext ==='email' ?true:false}
+                       errorColor={errortext ==='email' ? true : false}
                        onChange={(e)=>{
                         setErrorText('');
                         setSignPostParams({
@@ -45,7 +45,7 @@ export const Signup=()=>{
                    }}
                 />
                 <InputLabel labeltext={"Password"} placeholdertext={"Enter your password"} inputtype={"password"} Errortext={errortext === 'password'?'Password':undefined}
-                 errorColor={errortext ==='password' ?true:false}
+                 errorColor={errortext ==='password' ? true : false}
                       onChange={(e)=>{
                         setErrorText('');
                         setSignPostParams({
