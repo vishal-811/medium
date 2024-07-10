@@ -23,9 +23,11 @@ export const Navbar = () => {
     <nav className="sticky top-0 z-20 bg-white dark:bg-zinc-900 shadow-md">
       <div className="flex flex-row justify-between p-4 md:px-12">
         <div className="flex items-center space-x-4 md:space-x-12">
+          <a href="/">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-blue-600 tracking-tight">
             BlogBuddy
           </h2>
+          </a>
           {showSearchInput ? (
             <div className="relative">
               <input

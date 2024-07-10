@@ -6,7 +6,11 @@ export default {
   ],
   darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customPurple: '#e5d5f5',
+      },
+    },
   },
   plugins: [],
 }
