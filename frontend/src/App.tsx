@@ -9,6 +9,7 @@ import { AllBlog } from "./pages/AllBlog";
 import { Signin } from "./pages/Signin";
 import { Signup } from "./pages/Signup";
 import { HomePage } from "./pages/Homepage";
+import { AuthProvider } from "./contexts/Auth";
 
 const AppContent = () => {
   return (
@@ -29,9 +30,11 @@ const AppContent = () => {
 function App() {
   return (
     <ThemeProvider>
-      <Router>
+     <AuthProvider>
+     <Router>
         <AppContent />
       </Router>
+     </AuthProvider>
     </ThemeProvider>
   );
 }

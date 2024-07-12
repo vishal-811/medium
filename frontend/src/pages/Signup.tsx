@@ -5,6 +5,7 @@ import { SignupParams } from "@vishal-811/common"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
+import { useAuth } from "../contexts/Auth"
 
 export const Signup=()=>{
    const [signPostParams, setSignPostParams] =useState<SignupParams>({  //to make it more secure take types from common folder (backend).
@@ -13,8 +14,8 @@ export const Signup=()=>{
          password:""
    })
        const [errortext , setErrorText] =useState('');
-        const [signSuccess , setSignSuccess] =useState(false);
         const navigate =useNavigate();
+         const { login } =useAuth();
   return(
         <div className="pt-10 ps-3 pe-3 md:pt-12 h-screen">
         <div  className="flex flex-col pb-7 max-w-md mx-auto  border border-gray-200 dark:border-gray-800 shadow-2xl dark:shadow-sm rounded-2xl p-4 bg-white dark:bg-zinc-900">
@@ -80,8 +81,8 @@ export const Signup=()=>{
                         })
                             console.log(response);
                             if(response.status === 200){
-                                setSignSuccess(true);
-                                navigate('/')
+                              login(response.data.token);
+                              navigate('/')
                             }
                        } catch (error:any) {
                            console.log(error);
@@ -89,11 +90,11 @@ export const Signup=()=>{
                         }
                 }}/>
 
-                         {signSuccess && (
+                         {/* {signSuccess && (
                             <div className="mt-3 mb-6">
                             <small className="text-sm text-sky-400">Hooray <span className="text-lg">🎉,</span> account created successfully</small>
                            </div>
-                          )}
+                          )} */}
                           {errortext===('User already exist with this credentials' || 'Error While Signup' ||'plz provide  a valid inputs')
                           && (
                              <small className="text-sm text-red-500 pt-1">{errortext}</small>

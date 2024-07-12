@@ -4,6 +4,7 @@ import { InputLabel } from "../components/InputLabel";
 import { useState } from "react";
 import { signinParams } from "@vishal-811/common";
 import axios from "axios";
+import { useAuth } from "../contexts/Auth";
 
 export const Signin = () => {
   const [errortxt, setErrortxt] = useState('');
@@ -14,6 +15,7 @@ export const Signin = () => {
   });
 
     const navigate =useNavigate();
+      const { login } =useAuth();
   return (
     <div className="pt-10 ps-3 pe-3 md:pt-24 h-screen">
       <div className="flex flex-col max-w-md mx-auto border border-gray-200 dark:border-gray-800 shadow-4xl rounded-2xl p-4 bg-white dark:bg-zinc-900">
@@ -75,7 +77,8 @@ export const Signin = () => {
                //  console.log(response);
                 setLoading(false);
                   if(response.status===200){
-                     console.log(response.data.token);
+                     console.log(response);
+                      login(response.data.token);
                      navigate('/');
                   }
               } catch (error: any) {
