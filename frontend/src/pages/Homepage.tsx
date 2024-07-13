@@ -24,7 +24,7 @@ export const HomePage=()=>{
               tracking-normal bg-gradient-to-b from-orange-600 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
                     <Typewriter
                     options={{
-                     strings: ["Discover the possibilities.", "Create something cool.", "Connect with your audience."],
+                     strings: ["Discover the possibilities.", "Create something cool.", "Connect with audience."],
                      autoStart: true,
                       loop: true,
                       }}

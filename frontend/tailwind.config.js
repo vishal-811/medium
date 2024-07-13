@@ -7,8 +7,17 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
-      colors: {
-        customPurple: '#e5d5f5',
+    keyframes: {
+        shine: {
+          '0%': { transform: 'translateX(0%)', opacity: 0 },
+          '50%': { transform: 'translateX(50%)', opacity: 1 },
+          '100%': { transform: 'translateX(90%)', opacity: 0 },
+        },
+      },
+     
+      animation: {
+        shine: 'shine 3s linear infinite',
+
       },
     },
   },

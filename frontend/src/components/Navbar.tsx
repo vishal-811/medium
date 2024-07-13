@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { useEffect, useState } from "react";
 import { Profile } from "./Profile";
@@ -6,7 +6,7 @@ import { useAuth } from "../contexts/Auth";
 
 export const Navbar = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { isAuthenticated } = useAuth();
 
     useEffect(() => {
@@ -79,14 +79,15 @@ export const Navbar = () => {
                     {isAuthenticated ? (
                         <Profile />
                     ) : (
-                        <button
-                            onClick={() => {
-                                navigate('/signin');
-                            }}
-                            className="bg-blue-700 dark:bg-blue-800 p-1 ps-4 pe-4 text-lg rounded-lg text-white font-medium outline-neutral-300 hover:bg-blue-600"
+                        <a
+                           href="/signin"
+                            className="bg-black dark:bg-blue-800 p-1 ps-4 pe-4 text-lg rounded-lg text-white font-medium outline-neutral-300 relative"
                         >
                             Log in
-                        </button>
+
+                            <span className="absolute animate-shine top-0 -left-8 h-full w-[80%] bg-gradient-to-r from-transparent via-white to-transparent dark:via-transparent  "> </span>
+                        </a>
+                       
                     )}
                 </div>
             </div>
