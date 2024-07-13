@@ -7,6 +7,8 @@ export const Profile = () => {
          const profilehandler=()=>{
              setIsClicked(!isClicked);
          }
+
+      
     return (
       <div className="select-none">
         <button onClick={profilehandler} className="relative z-20">
@@ -28,6 +30,25 @@ export const Profile = () => {
                 </svg>
               </div>
               <p className="text-black dark:text-white text-lg">My Profile</p>
+            </div>
+
+            <div className="flex flex-row space-x-4">
+            <svg
+                width="26"
+                height="26"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-gray-900 dark:text-gray-100"
+>
+               <path
+                 fillRule="evenodd"
+                clipRule="evenodd"
+                 d="M4 5C4 3.89543 4.89543 3 6 3H18C19.1046 3 20 3.89543 20 5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V5ZM6 5H18V19H6V5ZM8 7C8 6.44772 8.44772 6 9 6H15C15.5523 6 16 6.44772 16 7C16 7.55228 15.5523 8 15 8H9C8.44772 8 8 7.55228 8 7ZM8 10C8 9.44772 8.44772 9 9 9H15C15.5523 9 16 9.44772 16 10C16 10.5523 15.5523 11 15 11H9C8.44772 11 8 10.5523 8 10ZM8 13C8 12.4477 8.44772 12 9 12H13C13.5523 12 14 12.4477 14 13C14 13.5523 13.5523 14 13 14H9C8.44772 14 8 13.5523 8 13Z"
+               fill="currentColor"
+            />
+         </svg>
+                 <a href={'/blogs'} className="text-black dark:text-white text-md hover:cursor-pointer hover:text-zinc-700">Blogs</a>
             </div>
   
             <button onClick={()=>{

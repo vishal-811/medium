@@ -148,7 +148,18 @@ blogRouter.get("/blogdetails/bulk",async(c)=>{
        }).$extends(withAccelerate())
         
        try {
-        const blogs = await prisma.blog.findMany({});
+        const blogs = await prisma.blog.findMany({
+            select:{
+                content:true,
+                title:true,
+                id:true,
+                author:{
+                   select:{
+                    username:true
+                   }
+                }
+            }
+        });
         if(!blogs){
             return c.json({msg:"No blogs are available"})
         }
