@@ -19,7 +19,7 @@ export const useBlog = () => {
             authorization: 'Bearer ' + token
           }
         });
-             console.log(response);
+            //  console.log(response);
         setBlogs(response.data.blogs);
       } catch (err:any) {
         console.error(err);
