@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom"
 
 
 interface BlogProps{
+    id:string
     authorName :string,
     title:string,
     content:string,
     publishedDate:string
 }
-export const BlogCard:React.FC<BlogProps>=({authorName,title,content,publishedDate})=>{
+export const BlogCard:React.FC<BlogProps>=({authorName,title,content,publishedDate,id})=>{
     return(
-        <div className="mt-4 pt-8 select-none">
+        <Link to={`readblog/${id}`}>
+            <div className="pt-8 select-none pb-8">
               <div className="bg-gray-50 rounded-md dark:bg-zinc-800  cursor-pointer">
                     <div className="flex flex-col space-y-2 p-6">
                        <div className="flex items-center space-x-3">
@@ -42,6 +45,7 @@ export const BlogCard:React.FC<BlogProps>=({authorName,title,content,publishedDa
                     </div>
               </div>
         </div>
+        </Link>
     )
 }
 

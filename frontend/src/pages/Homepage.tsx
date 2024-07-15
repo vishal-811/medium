@@ -1,4 +1,5 @@
 import Typewriter from 'typewriter-effect'
+ 
 
 
 export const HomePage=()=>{
@@ -31,6 +32,7 @@ export const HomePage=()=>{
 />
              </div>
        </div> 
+
                {/* Write a Blog Button */}
                <div className='flex justify-center mx-auto mt-12'>
               <div className='relative rounded-full shadow-black shadow-2xl dark:border dark:border-slate-900 dark:shadow  group'>

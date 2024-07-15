@@ -24,7 +24,7 @@ export const Navbar = () => {
     const showSearchInput = windowWidth >= 678;
 
     return (
-        <nav className="sticky top-0 z-20 bg-white dark:bg-zinc-900 shadow-md">
+        <nav className="sticky top-0 z-20 bg-white dark:bg-zinc-900 shadow-md bg-opacity-60 backdrop-blur-lg filter">
             <div className="flex flex-row justify-between p-4 md:px-12">
                 <div className="flex items-center space-x-4 md:space-x-12">
                     <a href="/">

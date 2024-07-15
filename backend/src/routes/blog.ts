@@ -125,6 +125,7 @@ blogRouter.get('/:id',async(c)=>{
                    author:{
                     select:{
                         name:true,
+                        username:true
                     }
                    },
                },

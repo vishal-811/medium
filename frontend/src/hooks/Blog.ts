@@ -1,8 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export const useBlog = () => {
-  const [blogs, setBlogs] = useState([]);
+
+interface Author{
+  username:string
+}
+interface Blogtype{
+  id:string,
+  title:string,
+  content:string,
+  author:Author,
+  publishedDate:string
+}
+export const useBlogs = () => {
+  const [blogs, setBlogs] = useState<Blogtype[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
