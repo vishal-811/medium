@@ -27,7 +27,6 @@ export const FullBlog = ({ title, content,authorName }: FullBlogProps) => {
                borderRadius: '2px'
               }}
             ></span>
-            <p>{content}</p>
         </div>
 
         </div>

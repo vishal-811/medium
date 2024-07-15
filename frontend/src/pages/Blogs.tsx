@@ -5,11 +5,11 @@ export const Blogs = () => {
   const { blogs, loading, error } = useBlogs();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="bg-white dark:bg-zinc-900">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="bg-white dark:bg-zinc-900">Error: {error}</div>;
   }
 
   return (
