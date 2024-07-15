@@ -2,8 +2,7 @@ import { Navbar } from "./components/Navbar";
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Navigate,
+  Routes
 } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Blogs } from "./pages/Blogs";
