@@ -17,7 +17,7 @@ const AppContent = () => {
   return (
     <div className="bg-white dark:bg-zinc-900">
       <Navbar />
-      <main className="z-5 h-screen">
+      <main className="z-5 h-full">
         <Routes>
            <Route path="/" element={<HomePage/>}/>
           <Route path="/signin" element={<Signin/>}/>
