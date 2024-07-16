@@ -11,7 +11,7 @@ interface BlogProps{
 export const BlogCard:React.FC<BlogProps>=({authorName,title,content,publishedDate,id})=>{
     return(
         <Link to={`readblog/${id}`}>
-            <div className="pt-8 select-none pb-8">
+            <div className="pt-8 pb-8 select-none">
               <div className="bg-gray-50 rounded-md dark:bg-zinc-800  cursor-pointer">
                     <div className="flex flex-col space-y-2 p-6">
                        <div className="flex items-center space-x-3">

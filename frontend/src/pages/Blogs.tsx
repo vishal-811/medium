@@ -13,8 +13,8 @@ export const Blogs = () => {
   }
 
   return (
-    <div className="max-w-xl md:max-w-3xl mx-auto mt-12 divide-y divide-solid divide-zinc-300 dark:divide-zinc-700 h-screen p-5 ">
-      <p className="text-black text-xl font-bold tracking-tight dark:text-white mb-4">All Blogs</p>
+    <div className="max-w-xl md:max-w-3xl mx-auto  divide-y divide-solid divide-zinc-300 dark:divide-zinc-700 ps-6 pe-6 md:ps-0 md:pe-0">
+      <p className="text-black text-xl font-bold tracking-tight dark:text-white pb-4">All Blogs</p>
       {blogs.map((blog) => (
         <div key={blog.id}>
           <BlogCard
@@ -26,6 +26,8 @@ export const Blogs = () => {
           />
         </div>
       ))}
+
+      <p></p>
     </div>
   );
 };

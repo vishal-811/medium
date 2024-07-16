@@ -16,8 +16,8 @@ const AppContent = () => {
     const { isAuthenticated } =useAuth();
   return (
     <div className="bg-white dark:bg-zinc-900">
-      <Navbar />
-      <main className="z-5 h-full">
+      <Navbar/>
+      <main className="z-5 min-h-screen md:pt-20 pt-12">
         <Routes>
            <Route path="/" element={<HomePage/>}/>
           <Route path="/signin" element={<Signin/>}/>

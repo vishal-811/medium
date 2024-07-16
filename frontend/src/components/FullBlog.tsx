@@ -6,7 +6,7 @@ interface FullBlogProps {
 
 export const FullBlog = ({ title, content,authorName }: FullBlogProps) => {
     return (
-        <div className="flex flex-col space-y-10 md:max-w-2xl max-w-lg mx-auto md:mt-16 mt-10  ps-6  pe-6">
+        <div className="flex flex-col space-y-10 md:max-w-2xl max-w-lg mx-auto p-6">
             <div className="flex flex-col">
                 <div className="pb-6">
                     <h2 className="text-4xl font-bold tracking-tight dark:text-white">{title}</h2>
@@ -28,7 +28,7 @@ export const FullBlog = ({ title, content,authorName }: FullBlogProps) => {
               }}
             ></span>
         </div>
-
+    
         </div>
     );
 };

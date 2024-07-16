@@ -93,8 +93,8 @@ export const Signin = () => {
           <div className="flex flex-col mt-1">
             {/* Show if any error */}
             {errortxt && (
-              errortxt === "User doesn't exist with this credentials,Please signup" ?
-                <small className="text-sm text-red-500">"Couldn't find account"</small> : undefined
+              errortxt ==="Couldn't find your account"?
+                <small className="text-sm text-red-500">Couldn't find account!</small> : undefined
             )}
             <div className="mt-3 flex items-center space-x-1 mb-8">
               <p className="text-sm text-black dark:text-white">No account?</p>
