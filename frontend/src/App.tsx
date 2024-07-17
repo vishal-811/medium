@@ -12,18 +12,20 @@ import { HomePage } from "./pages/Homepage";
 import { AuthProvider } from "./contexts/Auth";
 import { ReadBlog } from "./pages/ReadBlog";
 import { useAuth } from "./contexts/Auth";
+import { WriteBlog } from "./pages/WriteBlog";
 const AppContent = () => {
     const { isAuthenticated } =useAuth();
   return (
     <div className="bg-white dark:bg-zinc-900">
       <Navbar/>
-      <main className="z-5 min-h-screen md:pt-20 pt-12">
+      <main className="z-5 min-h-screen">
         <Routes>
            <Route path="/" element={<HomePage/>}/>
           <Route path="/signin" element={<Signin/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/blogs" element={isAuthenticated ?<Blogs />:<Signin/>} />
           <Route path="blogs/readblog/:id" element={isAuthenticated ?<ReadBlog/>:<Signin/>}/>
+          <Route path="/writeblog" element={<WriteBlog/>}/>
         </Routes>
       </main>
     </div>
