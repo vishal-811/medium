@@ -14,7 +14,7 @@ interface BlogType {
 
 export const useReadBlog = ({ id }: { id: string }) => {
     const [blog, setBlog] = useState<BlogType | null>(null);
-
+    const [loading ,setLoading]=useState(true);
     useEffect(() => {
         const fetchBlog = async () => {
             try {
@@ -27,11 +27,13 @@ export const useReadBlog = ({ id }: { id: string }) => {
                 console.log(response.data.blog)
             } catch (error) {
                 console.error(error);
+            }finally{
+                setLoading(false);
             }
         };
 
         fetchBlog();
     }, [id]);
 
-    return { blog };
+    return { blog ,loading};
 };

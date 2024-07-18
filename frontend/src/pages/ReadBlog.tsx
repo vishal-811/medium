@@ -5,8 +5,10 @@ import { useParams } from "react-router-dom";
 export const ReadBlog = () => {
     const { id } = useParams<{ id: string }>();
 
-    const { blog } = useReadBlog({ id: String(id) });
-
+    const { blog ,loading } = useReadBlog({ id: String(id) });
+          if(loading){
+            return <div>Loading ....</div>
+          }
     return (
         <div>
             {blog ? (
