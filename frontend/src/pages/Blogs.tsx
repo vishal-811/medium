@@ -1,11 +1,21 @@
 import { BlogCard } from "../components/BlogCard";
+import { Loader } from "../components/Loader";
 import { useBlogs } from "../hooks/Blog";
 
 export const Blogs = () => {
   const { blogs, loading, error } = useBlogs();
-
+      
   if (loading) {
-    return <div className="bg-white dark:bg-zinc-900">Loading...</div>;
+      return(
+       <>
+        <Loader/>
+        <Loader/>
+        <Loader/>
+        <Loader/>
+        <Loader/>
+        <Loader/>
+       </>
+      )
   }
 
   if (error) {

@@ -32,8 +32,8 @@ export const ReadBlogContainer=()=>{
 
               </div>
                        {/* Image div */}
-              <div className="relative flex flex-row bg-gray-300 dark:bg-gray-700 p-1 rounded-lg w-full shadow-2xl shadow-zinc-900 dark:shadow-gray-500  h-56 md:h-96">
-                  <div className="bg-gray-800 dark:bg-gray-900 shadow-lg shadow-zinc-900 rounded-lg p-3">
+              <div className="relative flex flex-row bg-gray-300 dark:bg-gray-700 md:p-1 p-[2px] rounded-lg w-full md:shadow-2xl shadow-lg shadow-zinc-900 dark:shadow-gray-500 h-52 md:h-96">
+                  <div className="bg-gray-800 dark:bg-gray-900 shadow-lg shadow-zinc-900 rounded-lg md:p-3 p-1">
                        <div className="rounded-lg bg-white h-full overflow-hidden w-full">
                        <img
                           className="rounded-lg object-fill"

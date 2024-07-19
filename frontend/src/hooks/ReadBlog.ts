@@ -12,7 +12,7 @@ interface BlogType {
     author:authortype
 }
 
-export const useReadBlog = ({ id }: { id: string }) => {
+export const useReadBlog = ({ id }: { id: string |null }) => {
     const [blog, setBlog] = useState<BlogType | null>(null);
     const [loading ,setLoading]=useState(true);
     useEffect(() => {

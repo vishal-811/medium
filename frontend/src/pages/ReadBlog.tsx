@@ -1,4 +1,5 @@
 import { FullBlog } from "../components/FullBlog";
+import { Loader } from "../components/Loader";
 import { useReadBlog } from "../hooks/ReadBlog";
 import { useParams } from "react-router-dom";
 
@@ -7,15 +8,19 @@ export const ReadBlog = () => {
 
     const { blog ,loading } = useReadBlog({ id: String(id) });
           if(loading){
-            return <div>Loading ....</div>
+            return(
+              <>
+                <Loader/>
+                <Loader/>
+                <Loader/>
+              </>
+            )
           }
     return (
         <div>
-            {blog ? (
+            {blog && (
                 <FullBlog title={blog.title} content={blog.content} authorName={blog.author.username} />
-            ) : (
-                <div>Loading...</div>
-            )}
+            ) }
         </div>
     );
 };
