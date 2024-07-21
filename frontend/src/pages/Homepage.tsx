@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
 import { ReadBlogContainer } from '../components/ReadBlogContainer';
-import { Footer } from '../components/Footer';
- 
 
 
 export const HomePage=()=>{
