@@ -7,12 +7,14 @@ export const WriteBlog = () => {
            const [content , setContent] =useState("");
            const [ispublished ,setIsPublished] =useState(false);
            const [errortxt, setErrorTxt] =useState('');
+            const [ispublishing ,setIsPublishing] =useState(false);
            const publishBlogHandler=async()=>{
+                  
                 if(!title || !content){
                       setErrorTxt("Please fill all the input fields.");
                      return;
                 }
-              
+                setIsPublishing(true);
                 try {
                     const response = await axios.post(
                          "https://backend.vishalssharma811.workers.dev/api/v1/blog/post",
@@ -28,6 +30,7 @@ export const WriteBlog = () => {
                        );
                          
                          if(response.status === 200){
+                             setIsPublished(true);
                               setTimeout(() => {
                                    setIsPublished(false);
                                    navigate('/blogs');
@@ -35,6 +38,8 @@ export const WriteBlog = () => {
                          }
                 } catch (error:any) {
                     setErrorTxt(error.response.data.msg)
+                }finally{
+                  setIsPublishing(false);
                 }
              
         }
@@ -74,10 +79,10 @@ export const WriteBlog = () => {
            </div>
            <div className="flex flex-col justify-center items-center p-8 space-y-3">
              <button onClick={publishBlogHandler} className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 md:w-32 w-full">
-               Publish
+                {ispublishing?"Publishing...":"Publish"}
              </button>
                 {errortxt!=null && <span className="text-red-500 text-lg">{errortxt}</span>}
-               {ispublished &&  <span className="text-lg text-green-400 ">Great 🎉, Blog Publish Successfully</span>}
+               {ispublished &&  <span className="text-lg text-green-400 ">Great 🎉, Blog Publish Successfully | Redirceting...</span>}
            </div>
          </div>
        </div>
