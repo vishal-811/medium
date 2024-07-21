@@ -31,7 +31,28 @@ export const Profile = () => {
               </div>
               <p className="text-black dark:text-white text-lg">My Profile</p>
             </div>
+                {/* Home */}
 
+                <div className="flex space-x-4">
+                <svg
+                 xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="feather feather-home dark:text-white text-zinc-900"
+                 >
+                   <path d="M3 9l9-7 9 7"></path>
+                   <path d="M9 22V12h6v10"></path>
+                    <path d="M22 22H2"></path>
+               </svg>
+
+                <a href={'/'} className="text-black dark:text-white text-md hover:cursor-pointer hover:text-zinc-700">Home</a>
+                </div>
             <div className="flex flex-row space-x-4">
             <svg
                 width="26"
@@ -47,8 +68,17 @@ export const Profile = () => {
                  d="M4 5C4 3.89543 4.89543 3 6 3H18C19.1046 3 20 3.89543 20 5V19C20 20.1046 19.1046 21 18 21H6C4.89543 21 4 20.1046 4 19V5ZM6 5H18V19H6V5ZM8 7C8 6.44772 8.44772 6 9 6H15C15.5523 6 16 6.44772 16 7C16 7.55228 15.5523 8 15 8H9C8.44772 8 8 7.55228 8 7ZM8 10C8 9.44772 8.44772 9 9 9H15C15.5523 9 16 9.44772 16 10C16 10.5523 15.5523 11 15 11H9C8.44772 11 8 10.5523 8 10ZM8 13C8 12.4477 8.44772 12 9 12H13C13.5523 12 14 12.4477 14 13C14 13.5523 13.5523 14 13 14H9C8.44772 14 8 13.5523 8 13Z"
                fill="currentColor"
             />
-         </svg>
+           </svg>
                  <a href={'/blogs'} className="text-black dark:text-white text-md hover:cursor-pointer hover:text-zinc-700">Blogs</a>
+            </div>
+             
+            {/* Write blogs */}
+
+            <div className="flex flex-row space-x-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" aria-label="Write" className='dark:text-zinc-300 text-zinc-900 '>
+                <path fill="currentColor" d="M14 4a.5.5 0 0 0 0-1zm7 6a.5.5 0 0 0-1 0zm-7-7H4v1h10zM3 4v16h1V4zm1 17h16v-1H4zm17-1V10h-1v10zm-1 1a1 1 0 0 0 1-1h-1zM3 20a1 1 0 0 0 1 1v-1zM4 3a1 1 0 0 0-1 1h1z">
+                </path><path stroke="currentColor" d="m17.5 4.5-8.458 8.458a.25.25 0 0 0-.06.098l-.824 2.47a.25.25 0 0 0 .316.316l2.47-.823a.25.25 0 0 0 .098-.06L19.5 6.5m-2-2 2.323-2.323a.25.25 0 0 1 .354 0l1.646 1.646a.25.25 0 0 1 0 .354L19.5 6.5m-2-2 2 2"></path></svg>
+                 <a href={'/writeblog'} className="text-black dark:text-white text-md hover:cursor-pointer hover:text-zinc-700">Write Blog</a>
             </div>
   
             <button onClick={()=>{

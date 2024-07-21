@@ -25,7 +25,7 @@ const AppContent = () => {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/blogs" element={isAuthenticated ?<Blogs />:<Signin/>} />
           <Route path="blogs/readblog/:id" element={isAuthenticated ?<ReadBlog/>:<Signin/>}/>
-          <Route path="/writeblog" element={<WriteBlog/>}/>
+          <Route path="/writeblog" element={isAuthenticated ?<WriteBlog/>:<Signin/>}/>
         </Routes>
       </main>
     </div>
