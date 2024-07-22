@@ -13,7 +13,6 @@ export const Blogs = () => {
         <Loader/>
         <Loader/>
         <Loader/>
-        <Loader/>
        </>
       )
   }
